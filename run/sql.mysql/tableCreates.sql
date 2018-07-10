@@ -57,7 +57,7 @@ create table bmsql_customer (
 
 create table bmsql_history (
   hist_id integer not null auto_increment primary key,
-  h_c_id   integer,
+  h_c_id   bigint,
   h_c_d_id integer,
   h_c_w_id integer,
   h_d_id   integer,
