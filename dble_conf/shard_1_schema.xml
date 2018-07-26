@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE dble:schema SYSTEM "schema.dtd">
+<dble:schema xmlns:dble="http://dble.cloud/">
+	<!--benchmarksql-->
+    	<schema name="benchmarksql" dataNode="dn2">		
+	    	<table name="bmsql_warehouse"  dataNode="dn2"  />
+		<table name="bmsql_stock"  dataNode="dn2"  />
+		<table name="bmsql_history" dataNode="dn2"  />
+		<table name="bmsql_new_order"  dataNode="dn2"  />
+	    	<table name="bmsql_order_line"  dataNode="dn2"  />
+		<table name="bmsql_district"  dataNode="dn2"  />
+	    	<table name="bmsql_customer"  dataNode="dn2"  />
+       		<table name="bmsql_oorder"  dataNode="dn2"  />
+		<table name="bmsql_item"  dataNode="dn2" />
+	</schema> 
+	<dataNode name="dn2" dataHost="host_2" database="zhj" />
+
+	<dataHost name="host_2" maxCon="1000" minCon="1000" balance="0" switchType="1"  slaveThreshold="100">
+	<heartbeat>select user()</heartbeat> 
+	<writeHost host="hostM2" url="10.186.xxx.102:xxxx" user="xxxxxx" password="xxxxxx"></writeHost> 
+	</dataHost>
+
+</dble:schema>

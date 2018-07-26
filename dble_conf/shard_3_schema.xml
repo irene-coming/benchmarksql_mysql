@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE dble:schema SYSTEM "schema.dtd">
+<dble:schema xmlns:dble="http://dble.cloud/">
+	<!--benchmarksql-->
+    	<schema name="benchmarksql" dataNode="dn1">		
+	    	<table name="bmsql_warehouse"  dataNode="dn1,dn2,dn3" rule="rule-warehouse" />
+		<table name="bmsql_stock"  dataNode="dn1,dn2,dn3" rule="rule-stock" />
+		<table name="bmsql_history" dataNode="dn1,dn2,dn3" rule="rule-history" primaryKey="hist_id" autoIncrement="true"/>
+		<table name="bmsql_new_order"  dataNode="dn1,dn2,dn3" rule="rule-new_orders" />
+	    	<table name="bmsql_order_line"  dataNode="dn1,dn2,dn3" rule="rule-order_line" />
+		<table name="bmsql_district"  dataNode="dn1,dn2,dn3" type="global" />
+	    	<table name="bmsql_customer"  dataNode="dn1,dn2,dn3" rule="rule-customer" />
+       		<table name="bmsql_oorder"  dataNode="dn1,dn2,dn3" rule="rule-orders" />
+		<table name="bmsql_item"  dataNode="dn1,dn2,dn3" type="global" />
+	</schema> 
+	<dataNode name="dn1" dataHost="host_1" database="zhj" /> <!--this database "test1" is real name in mysql -->
+	<dataNode name="dn2" dataHost="host_2" database="zhj" />
+	<dataNode name="dn3" dataHost="host_3" database="zhj" />
+	<dataNode name="dn4" dataHost="host_4" database="zhj" />
+
+	<dataHost name="host_1" maxCon="1000" minCon="1000" balance="0" switchType="1"  slaveThreshold="100">
+	<heartbeat>select user()</heartbeat> 
+	<writeHost host="hostM1" url="10.186.xxx.101:xxxx" user="xxxxxx" password="xxxxxx"></writeHost> 
+	</dataHost>
+	
+	<dataHost name="host_2" maxCon="1000" minCon="1000" balance="0" switchType="1"  slaveThreshold="100">
+	<heartbeat>select user()</heartbeat> 
+	<writeHost host="hostM2" url="10.186.xxx.102:xxxx" user="xxxxxx" password="xxxxxx"></writeHost> 
+	</dataHost>
+
+	<dataHost name="host_3" maxCon="1000" minCon="1000" balance="0" switchType="1" slaveThreshold="100">
+	<heartbeat>select user()</heartbeat>
+	<writeHost host="hostM3" url="10.186.xxx.105:xxxx" user="xxxxxx" password="xxxxxx"></writeHost>
+	</dataHost>
+
+</dble:schema>

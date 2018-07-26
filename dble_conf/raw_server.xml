@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dble:server SYSTEM "server.dtd">
+<dble:server xmlns:dble="http://dble.cloud/">
+
+        <system>
+        <property name="useSqlStat">0</property>  
+        <property name="useGlobleTableCheck">0</property>  
+        <property name="dataNodeHeartbeatPeriod">600000</property> 
+        <property name="dataNodeIdleCheckPeriod">600000</property> 
+        <property name="checkTableConsistency">0</property>
+        <property name="sequnceHandlerType">2</property>       
+        <property name="processorBufferPoolType">0</property>
+        <property name="useOffHeapForMerge">1</property>
+        <property name="memoryPageSize">1m</property>
+        <property name="spillsFileBufferSize">8k</property>
+        <property name="useStreamOutput">0</property>
+        <property name="systemReserveMemorySize">384m</property>
+        <property name="useZKSwitch">true</property>
+	<property name="lowerCaseTableNames">true</property>
+	<property name="processors">6</property>
+	<property name="backendProcessors">6</property>
+	<property name="processorExecutor">6</property>
+	<property name="backendProcessorExecutor">2</property>
+	<property name="writeToBackendExecutor">2</property>
+	<property name="sqlExecuteTimeout">3000000</property>
+	<property name="useJoinStrategy">false</property>
+	<property name="complexExecutor">1</property>
+	<property name="costTimeStat">1</property>
+	<property name="useCostTimeStat">1</property>
+	<property name="costSamplePercent">1</property>
+	<property name="maxCostStatSize">100</property>
+	<property name="idleCount">10000000</property>
+	<property name="maxHandleCount">1</property>
+	<property name="bufferPoolChunkSize">4096</property>
+	<property name="bufferPoolPageNumber">1280</property>
+	<property name="bufferPoolPageSize">2097152</property>
+	<property name="frontSocketNoDelay">1</property>
+	<property name="backSocketNoDelay">1</property>
+        <property name="useThreadUsageStat">1</property>
+	<property name="usePerformanceMode">1</property>
+	<property name="txIsolation">2</property>
+	<property name="ioratio">1024</property>
+	<property name="queueSizePerBackendProcessor">1</property>
+	<property name="backendPostSelectExecutor">16</property>
+</system>
+
+
+        <user name="user1"> 
+                <property name="password">111111</property>
+                <property name="schemas">benchmarksql</property> 
+		<property name="benchmark">1000000</property>
+				<!-- this schemas name is a virtual name on dble.-->
+        </user>
+         <user name="test">
+           <property name="password">test</property>
+           <property name="manager">true</property>
+        </user>
+</dble:server>
